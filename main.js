@@ -1,14 +1,18 @@
-let numbersPropmt = prompt("enter numbers with ONLY one space between them");
-let numbersList = numbersPropmt.split(' ');
-console.log(numbersList)
+let elements = 'que si cristian que si'
+let elementToFind = 'si'
 
-const operation = async (numbersList)=>{
-    let result = 0;
-    numbersList.forEach(element => {
-        let number = parseInt(element);
-        result += number;
+const findElement = async (elements, search) =>{
+    let elementsList = elements.split(' ');
+    console.log(elementsList)
+    let auth = false;
+    elementsList.forEach((element, index) => {
+        if(element === search){
+            console.log(`"${element}" is in the index number: ${index}`);
+            auth = true;
+        }
     });
-    return result;
+    if( auth === false){
+        console.log(`${search} is not the words that were provided`);
+    }
 }
-
-console.log(await operation(numbersList))
+await findElement(elements,elementToFind);
