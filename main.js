@@ -1,19 +1,14 @@
+let numbersPropmt = prompt("enter numbers with ONLY one space between them");
+let numbersList = numbersPropmt.split(' ');
+console.log(numbersList)
 
-let numbers=prompt("enter number with ONLY one space betwen them")
-// let numbers = '1 5 17'
-let numberList = numbers.split(' ');
-console.log(numberList)
-
-const numbersIdentifier = async(numberList)=>{
-    let smallestNumber = parseInt(numberList[0])
-    numberList.forEach(number => {
-        let parsedNumber = parseInt(number)
-        if(parsedNumber < smallestNumber){
-            smallestNumber = number
-        }
+const operation = async (numbersList)=>{
+    let result = 0;
+    numbersList.forEach(element => {
+        let number = parseInt(element);
+        result += number;
     });
-    console.log(`the smallest number is: ${smallestNumber}`)
+    return result;
 }
-numbersIdentifier(numberList)
 
-
+console.log(await operation(numbersList))
