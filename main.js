@@ -1,29 +1,22 @@
-let monkeysAndBananas = '🐵🍌🍌🍌🐵🍌🐵🍌'; // Ejemplo de entrada
+let pets = '🐶🐱🐶🐱🐱🐶🐶'; 
 
-const countMonkeysAndBananas = async (input) => {
-    let itemsList = [...input];
-    console.log(itemsList);
+const groupPets = async (input) => {
+    let petsList = [...input];
+    console.log(petsList);
     
-    let monkeyCount = 0;
-    let bananaCount = 0;
+    let dogs = [];
+    let cats = [];
     
-    itemsList.forEach(element => {
-        if (element === '🐵') {
-            monkeyCount += 1;
-        } else if (element === '🍌') {
-            bananaCount += 1;
+    petsList.forEach(pet => {
+        if (pet === '🐶') {
+            dogs.push(pet);
+        } else if (pet === '🐱') {
+            cats.push(pet);
         }
     });
     
-    console.log(`Hay ${monkeyCount} monos y ${bananaCount} bananas.`);
-    
-    const bananasPerMonkey = prompt("¿Cuántas bananas come un mono?: ");
-    
-    if (bananaCount >= monkeyCount * bananasPerMonkey) {
-        console.log(`¡Hay suficientes bananas para los monos! 🍌`);
-    } else {
-        console.log(`¡Oh no! ¡No hay suficientes bananas para los monos! 😭`);
-    }
+    let groupedPets = [...dogs, ...cats];
+    console.log(`Resultado: ${groupedPets.join('')}`);
 }
 
-countMonkeysAndBananas(monkeysAndBananas);
+groupPets(pets);
