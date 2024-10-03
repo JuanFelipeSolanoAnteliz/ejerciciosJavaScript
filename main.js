@@ -1,34 +1,23 @@
-// Ingresar nombres: Sam Frodo Legolas
-// Sam y Frodo están juntos, ¡Frodo está a salvo!
+let fruits ='🍎🍎🍐🍑🍎🍑'
 
-// Ingresar nombres: Sam Orco Frodo
-// Sam y Frodo están separados, ¡Frodo está en peligro!
-const names = 'Sam pepe Orco Frodo'
-
-const findFrodo = async(names)=>{   
-    let namesLits = names.split(' ');
-    console.log(namesLits);
-    let frodoSafe = false; 
-    namesLits.forEach((element,index) => {
-        if(element == 'Sam' & index != 0 ){
-            console.log('hola, soy Sam',index)
-            if(namesLits[index+1] == 'Frodo' || namesLits[index-1] == 'Frodo'){
-                frodoSafe  = true;
-            }
+const countFruits = async (fruits)=> {
+    let fruitsList = [...fruits];
+    console.log(fruitsList);
+    let appleCount = 0;
+    let pearCount = 0;
+    let peachCount = 0;
+    fruitsList.forEach(element => {
+        if (element == '🍎' ){
+            appleCount+=1;
+        }    
+        else if (element == '🍐' ){
+            pearCount+=1;
         }
-        else if( element == 'Sam' & index == 0){
-            console.log('sam en 0')
-            if(namesLits[index+1] == 'Frodo'){
-            frodoSafe  = true;
-            }
+        else if (element == '🍑' ){
+            peachCount+=1;
         }
     });
-    if(!frodoSafe){
-        console.log('Frodo es alejado, cuidado')
-    }
-    else if(frodoSafe){
-        console.log('Frodo esta a salvo')
-    } 
+    console.log( ` there is ${appleCount} apples, ${pearCount} pears, ${peachCount} peachs `)
 }
 
-await findFrodo(names)
+countFruits(fruits);
