@@ -1,22 +1,20 @@
-let pets = '🐶🐱🐶🐱🐱🐶🐶'; 
+let usuarios = 'Ana Maria Lucia'; 
 
-const groupPets = async (input) => {
-    let petsList = [...input];
-    console.log(petsList);
-    
-    let dogs = [];
-    let cats = [];
-    
-    petsList.forEach(pet => {
-        if (pet === '🐶') {
-            dogs.push(pet);
-        } else if (pet === '🐱') {
-            cats.push(pet);
-        }
-    });
-    
-    let groupedPets = [...dogs, ...cats];
-    console.log(`Resultado: ${groupedPets.join('')}`);
+const showChatStatus = (input) => {
+    let nombres = input.split(' '); 
+    let cantidad = nombres.length;
+
+    if (cantidad === 0) {
+        console.log('There are no one online');
+    } else if (cantidad === 1) {
+        console.log(`${nombres[0]} is online.`);
+    } else if (cantidad === 2) {
+        console.log(`${nombres[0]} y ${nombres[1]} are online.`);
+    } else {
+        let conectadas = nombres.slice(0, 2).join(', '); 
+        let extras = cantidad - 2; 
+        console.log(`${conectadas} and ${extras} people are online.`);
+    }
 }
 
-groupPets(pets);
+showChatStatus(usuarios);
